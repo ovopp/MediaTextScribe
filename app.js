@@ -36,11 +36,19 @@ app.get('/profile', (req, res) => {
   });
 
 app.post('/totext', (req, res) => {
-    //const url = req.query.url;
-    // send the url to the azure server to do the work
-    res.render('index', {
-        title: 'HomePage',
-        people: people.profiles}); // and the response from the server which will be in json?
+    var request = require("request");
+    var options = { method: 'POST',
+        url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
+        headers:
+            {
+                'cache-control': 'no-cache',
+                'Content-Type': 'application/json' },
+        body: { url: req.query},
+        json: true };
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        console.log(body);
+    });
 });
 
 // catch 404 and forward to error handler
