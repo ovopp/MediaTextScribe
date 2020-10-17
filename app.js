@@ -38,7 +38,9 @@ app.get('/profile', (req, res) => {
 app.post('/totext', (req, res) => {
     //const url = req.query.url;
     // send the url to the azure server to do the work
-    res.render('text for the image'); // and the response from the server which will be in json?
+    res.render('index', {
+        title: 'HomePage',
+        people: people.profiles}); // and the response from the server which will be in json?
 });
 
 // catch 404 and forward to error handler

@@ -129,7 +129,8 @@
     width: 100%;
     text-decoration: none;
     text-align: center;
-    font-size: 20px
+    font-size: 20px;
+    margin-bottom: 20px;
   }
   
   .button-twitter {
