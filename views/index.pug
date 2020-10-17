@@ -10,3 +10,8 @@ block content
           | #{person.firstname} #{person.lastname}
         a(href=`/profile?id=${person.id}`)
           | View Profile
+  div.container
+    form(action=`/totext` method='POST' )
+      p type your url here
+      input(type='text' name='address' placeholder='http://example.com').input
+      button(type='submit').button convert to text

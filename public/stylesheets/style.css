@@ -137,4 +137,15 @@
     background-color: #659AF1;
     border-radius: 5px;
   }
+
+/* Input
+   ==============================================================================*/
+.input {
+  height: 50px;
+  width: 100%;
+  font-size: 25px;
+  margin: 10px;
+  border-color: PURPLE;
+}
+
   
