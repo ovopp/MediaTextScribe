@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/759c1c8f-0e7e-4533-96ac-d6ce665fcc09/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/TeamZeroWebApp",
+    "appService.deploySubpath": "."
+}
