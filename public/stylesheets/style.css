@@ -42,27 +42,66 @@
   
   .header {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    background-color: #525286;
-    color: #FFFFFF;
-    margin-bottom: 50px;
+    opacity: 0.6;
+    height: 225px;
+    background-color: #FFFFFF;
+    border-color:#e1dede;
+    font-weight: bold;
+    padding-bottom: 100px;
   }
-  
+
+  h1.head{
+    width: 70%;
+    height: 50px;
+    font-family: 'Anonymous Pro';
+    font-size: 50px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    padding-top : 38px;
+    padding-left: 40px;
+    padding-right: 200px;
+    color: #262626;
+  }
+
+  h2.head{
+    width: 100px;
+    height: 20px;
+    font-family: 'Anonymous Pro';
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    padding-top : 20px;
+    padding-right: 20px;
+    float:right;
+    color: #262626;
+  }
+
+
+  .input {
+    height: 50px;
+    width: 100%;
+    font-size: 25px;
+    margin: 10px;
+    border-color: PURPLE;
+  }
   
   
   /* Homepage Container
      ========================================================================== */
   
-  .container {
-    width: 960px;
+  /* .container {
+    width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
-  }
+  } */
 
   .description {
       font-size: 22px;
@@ -70,6 +109,22 @@
 
   }
   
+  div.help_text{
+    width: 100%px;
+    height: 132px;
+    opacity: 0.6;
+    font-family: 'Merriweather';
+    font-size: 56px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #262626;
+    padding-left: 190 px;
+    padding-right: 190 px;
+  }
   
   
   /* Profile Card
