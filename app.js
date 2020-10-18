@@ -50,9 +50,9 @@ app.post('/totext', (req, res) => {
         .then(function(html){
             //success!
             var text = "";
-            const imagesLength = $('div > img', html).length;
+            const imagesLength = $('img', html).length;
             for (let i = 0; i < imagesLength; i++) {
-                images.push($('div > img', html)[i].attribs.src);
+                images.push($('img', html)[i].attribs.src);
             }
             for(let i=0; i< images.length; i++){
               var request = require("request");
@@ -67,7 +67,7 @@ app.post('/totext', (req, res) => {
               request(options, function (error, response, body) {
                   if (error) throw new Error(error);
                   if(response.body != undefined){
-                        var str2 = JSON.stringify(response.body);
+                        var str2 = JSON.stringify(response.body.description);
                         text = text.concat(str2);
                   }
                   console.log(text);
