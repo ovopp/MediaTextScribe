@@ -1,4 +1,5 @@
 var express = require('express');
+var res = require('request');
 var router = express.Router();
 
 /* GET home page. */
@@ -22,8 +23,25 @@ function openTab(evt, cityName) {
 }
 
 function translateText(){
-  document.getElementById("results").innerText = "Translated to Chinese";
+                var options = { method: 'POST',
+                    url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
+                    headers:
+                        {
+                            'cache-control': 'no-cache',
+                            'Content-Type': 'application/json' },
+                    body: {'url': 'https://en.wikipedia.org/wiki/COVID-19_pandemic'},
+                    json: true };
+                    res(options, function (error, response) {
+                    if (error) throw new Error(error);
+                    if(response.body != undefined){
+                      console.log(response.body);
+                      document.getElementById("results").innerText = JSON.stringify(response.body);
+                    }
+                });
+
 }
+
+
 function readOutLoud(){
   if ('speechSynthesis' in window) {
     // Speech Synthesis supported 🎉

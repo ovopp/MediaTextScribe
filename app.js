@@ -29,11 +29,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/profile', (req, res) => {
-    const person = people.profiles.find(p => p.id === req.query.id);
-    res.render('profile', {
-      title: `About ${person.firstname} ${person.lastname}`,
-      person,
+app.get('/video', (req, res) => {
+    res.render('video', {
+      title: `Video`
     });
   });
 
@@ -83,13 +81,6 @@ app.post('/totext', (req, res) => {
             }
           }
 
-            // setTimeout(function(){
-            //   var j = 0;
-            //   $('img').each(function(){
-            //     $(this).replaceWith(result_arr[j]);
-            //     j++;
-            //   });
-            // },15000);
             setTimeout(function(){
               res.render('text', {
                 title: 'Media TextScribe',
