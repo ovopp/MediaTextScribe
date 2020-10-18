@@ -36,10 +36,32 @@ app.get('/profile', (req, res) => {
     });
   });
 
-app.post('/totext', (req,res) =>{
-  var x = req.body;
-  console.log(x.address);
-  res.render('index', {title: x.address, people: people.profiles});
+
+// app.post('/totext', (req,res) =>{
+//   var x = req.body;
+//   console.log(x.address);
+//   res.render('index', {title: x.address, people: people.profiles});
+
+app.post('/totext', (req, res) => {
+    var form_data = req.body.address;
+    console.log(form_data);
+    var request = require("request");
+    var options = { method: 'POST',
+        url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
+        headers:
+            {
+                'cache-control': 'no-cache',
+                'Content-Type': 'application/json' },
+        body: { url: form_data},
+        json: true };
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        console.log(body);
+        res.render('index', {
+          title: body.description
+        });
+    });
+  
 });
 
 // catch 404 and forward to error handler

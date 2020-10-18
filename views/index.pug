@@ -1,7 +1,6 @@
 
 extends layout
 block content
-<<<<<<< HEAD
   div.help_text Insert any URL and get a page reoptimized with image descriptions
   div.form
     form(action=`/totext` method='POST' )
@@ -9,19 +8,3 @@ block content
         input(type='text' name='address' placeholder='http://example.com' value='').input
       input(type='submit', value='Submit')
 
-=======
-  div.container
-    each person in people
-      div.person
-        div.person-image(style=`background: url('/images/${person.imgSrc}') top center
-        no-repeat; background-size: cover;`)
-        h2.person-name
-          | #{person.firstname} #{person.lastname}
-        a(href=`/profile?id=${person.id}`)
-          | View Profile
-  div.container
-    form(action=`/totext` method='POST' )
-      p type your url here
-      input(type='text' name='address' placeholder='http://example.com').input
-      button(type='submit').button convert to text
->>>>>>> 0117f676237b7e8a80b08d9fd7095dabd820719a
