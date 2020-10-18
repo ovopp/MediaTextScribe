@@ -133,6 +133,26 @@
     padding-bottom: 75px;
   }
 
+  div.help_text2{
+    width: auto;
+    height: 132px;
+    opacity: 0.6;
+    font-family: 'Merriweather';
+    font-size: 40px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #262626;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 40px;
+    margin: 40px;
+  }
+  
+
   div.form{
     width: 90%;
     padding-top: 25px;
@@ -278,7 +298,7 @@ div.sectiontext{
   border-radius: 16px;
   margin:1%;
   padding: 1%;
-  height: 300px;
+  height: 30%;
 }
 
 
