@@ -57,8 +57,9 @@ app.post('/totext', (req, res) => {
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
         console.log(body);
-        res.render('index', {
-          title: body.description
+        res.render('text', {
+          title: 'Media TextScribe',
+            words: body.description
         });
     });
   
