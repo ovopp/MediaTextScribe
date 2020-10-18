@@ -1,10 +1,42 @@
 
 extends layout
 block content
-  div.help_text Insert any URL and get a page reoptimized with image descriptions
-  div.form
-    form(action=`/totext` method='POST' )
-      p type your url here
-        input(type='text' name='address' placeholder='http://example.com' value='').input
-      input(type='submit', value='Submit')
+  div.globalcontainer
+    div.help_text Insert any URL and get a page reoptimized with image descriptions
+    div.form
+      p.webpagetext Website URL
+      form(action=`/totext` method='POST' )
+        p
+          input(type='text' name='address' placeholder='http://example.com' value='').input
+        input(style="float: right", type='submit', value='TextScribe').button
 
+    div.belief
+      p.belief We believe alt-text is a web essential, not luxury
+        p.bullet • Globally, at least 1 billion people have a near or distance vision impairment
+        p.bullet • Only 1% of the world’s top million web pages meet the most widely used accessibility
+        p.bullet • People who use screen readers are regularly confronted with readouts like “unlabeled button” or “image1.jpg” in place of the descriptive information they need to navigate.
+
+    div.tabs
+      .tab
+      button.tablinks.active(onclick="openTab(event, 'Image')") Image
+      button.tablinks(onclick="openTab(event, 'Video')") Video
+      #Image.tabcontent
+        div.imagetabtext
+          div.sectiontext
+            p.title Smart Alt-text technology <br><br>
+            p.description We use machine learning technology to render descriptive text for images without relying on alt text. No more nonsense readouts.
+          div.sectiontext
+            p.title  Text in logical order <br><br>
+            p.description Our text is rendered in the correct order your screen reader needs to read it. Say hello to coherent readouts.
+          div.sectiontext
+            p.title Voiceover and Translate <br><br>
+            p.description Use our voiceover and translate functions to make your text even more accessible, any way you need.
+            
+      #Video.tabcontent(style="display:none")
+        div.videotabtext 
+          p.title A viable low bandwidth solution <br> <br>
+          p.description Approximately 6% of the population lacks access to highspeed internet. We believe this shouldn’t be a barrier to accessing important information on the web.<br><br>
+            p2.descriptionlist ✓ Input your video URL into our platform to receive our smart text technology transcript, complete with voiceover and translate. <br> <br>
+            p2.descriptionlist ✓ View your video in low resolution compatible with lower bandwidth speed <br><br>
+      script
+        include ../routes/index.js
