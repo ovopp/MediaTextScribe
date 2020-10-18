@@ -37,33 +37,79 @@ app.get('/profile', (req, res) => {
   });
 
 
-// app.post('/totext', (req,res) =>{
-//   var x = req.body;
-//   console.log(x.address);
-//   res.render('index', {title: x.address, people: people.profiles});
+
+const url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States';
+
+
 
 app.post('/totext', (req, res) => {
     var form_data = req.body.address;
     console.log(form_data);
-    var request = require("request");
-    var options = { method: 'POST',
-        url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
-        headers:
-            {
-                'cache-control': 'no-cache',
-                'Content-Type': 'application/json' },
-        body: { url: form_data},
-        json: true };
-    request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-        console.log(body);
-        res.render('text', {
-          title: 'Media TextScribe',
-            words: body.description
+    var rp = require('request-promise');
+    const $ = require('cheerio');
+    var images = [];
+    rp(form_data)
+        .then(async function(html){
+            //success!
+            const imagesLength = $('div > img', html).length;
+            var textForDisplay = [];
+            for (let i = 0; i < imagesLength; i++) {
+                console.log("starting loop " + i);
+                var imageURL = $('div > img', html)[i].attribs.src;
+                console.log(imageURL);
+                var request = await require("request");
+                var options = { method: 'POST',
+                    url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
+                    headers:
+                        {
+                            'cache-control': 'no-cache',
+                            'Content-Type': 'application/json' },
+                    body: { url: imageURL},
+                    json: true };
+                await request(options, function (error, response, body) {
+                    if (error) throw new Error(error);
+                    if(body !== undefined){
+                        console.log("adding " + body.description);
+                        textForDisplay.push(body.description);
+                    } else {
+                        console.log("it was undefined and im moving on");
+                    }
+                });
+                console.log("ending loop " + i);
+            }
+            console.log("finished adding image text");
+            console.log(textForDisplay);
+            res.render('text', {
+                title: 'Media TextScribe',
+                textForDisplay: textForDisplay
+            });
+        })
+        .catch(function(err){
+            //handle error
         });
-    });
-  
+    //console.log("outside rq: " + images);
+    /*for(let image in images){
+        var request = require("request");
+        var options = { method: 'POST',
+            url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
+            headers:
+                {
+                    'cache-control': 'no-cache',
+                    'Content-Type': 'application/json' },
+            body: { url: image},
+            json: true };
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            console.log(body);
+            res.render('text', {
+                title: 'Media TextScribe',
+                words: body.description
+            });
+        });
+    }*/
 });
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
