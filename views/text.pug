@@ -9,4 +9,5 @@ block content
                 input(type='submit', value='TextScribe').button
     div.result
         h1 Image to text
-        p #{words}
+        each text in textForDisplay
+            p #{textForDisplay}
