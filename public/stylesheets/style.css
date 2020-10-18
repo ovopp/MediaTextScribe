@@ -43,11 +43,10 @@
   .header {
     width: 100%;
     opacity: 0.6;
-    height: 225px;
+    height: 125px;
     background-color: #FFFFFF;
-    border-color:#e1dede;
+    border : 1px solid #A3A1A1;
     font-weight: bold;
-    padding-bottom: 100px;
   }
 
   h1.head{
@@ -81,15 +80,6 @@
     float:right;
     color: #262626;
   }
-
-
-  .input {
-    height: 50px;
-    width: 100%;
-    font-size: 25px;
-    margin: 10px;
-    border-color: PURPLE;
-  }
   
   
   /* Homepage Container
@@ -103,16 +93,31 @@
     grid-gap: 20px;
   } */
 
+  .globalcontainer{
+
+  }
+
   .description {
       font-size: 22px;
     align-items: center;
 
   }
-  
+  p.webpagetext{
+    width: 138px;
+    height: 25px;
+    opacity: 1;
+    font-family: 'Merriweather';
+    font-size: 20px;
+    line-height:25px;
+    color: #262626;
+    padding-top: 150px;
+    padding-bottom: 25px;
+  }
+
   div.help_text{
     width: 100%;
     height: 132px;
-    opacity: 0.6;
+    opacity: 1;
     font-family: 'Merriweather';
     font-size: 56px;
     font-weight: bold;
@@ -122,9 +127,10 @@
     letter-spacing: normal;
     text-align: center;
     color: #262626;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 40px;
+    padding-top: 25px;
+    padding-left: 190 px;
+    padding-right: 190 px;
+    padding-bottom: 75px;
   }
 
   div.help_text2{
@@ -146,67 +152,70 @@
     margin: 40px;
   }
   
+
+  div.form{
+    width: 90%;
+    padding-top: 25px;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-family: 'Merriweather';
+    align-content: center;
+    margin:auto;
+    padding-bottom: 100px;
+  }
   
-  /* Profile Card
-     ========================================================================== */
-  
-  .person {
+  div.belief{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Merriweather';
+    font-stretch: normal;
+    font-style: normal;
     text-align: center;
+    color: #262626;
   }
-  
-  .person > * {
-    margin-bottom: 5px;
+
+  p.belief{
+    font-size: 42px;
+    line-height: 53px;
+    font-weight: bold;
   }
-  
-  .person-image {
-    width: 100%;
-    height: 300px;
+  p.bullet{
+    padding-top: 30px;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 24px;
+    line-height: 30px;
+    font-style: normal;
+font-weight: normal;
+    text-align: left;
   }
-  
-  
-  
-  /* Profile Page
-     ========================================================================== */
-  
-  .profile {
-    display: flex;
-    height: 100vh;
-    width: 100%;
+
+  div.tabs{
+    padding-top: 30px;
+    margin:auto;
+    text-align: center;
+
   }
-  
-  .profile-image {
-    height: 100%;
-    flex-grow: 1;
-    flex-basis: 50%;
-  }
-  
-  .profile-details {
-    flex-basis: 30%;
-    flex-grow: 1;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .profile-details > * {
-    margin-bottom: 20px;
-  }
-  
-  
-  
+
   /* Buttons
      ========================================================================== */
   
   .button {
-    height: 50px;
-    line-height: 50px;
-    width: auto;
-    text-decoration: none;
-    text-align: center;
+    float:left;
+    width: 210px;
+    height: 65px;
+    left: 955px;
+    top: 413 px;
+    background: #BCBCBC;
+    border-radius: 8px;
+    border: 0px;
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: bold;
     font-size: 20px;
-    margin-bottom: 20px;
-  }
+    line-height: 25px;
+    }
   
   .button-twitter {
     color: #FFFFFF;
@@ -214,15 +223,107 @@
     border-radius: 5px;
   }
 
+  button.tablinks{
+    background: none;
+    border: none;
+    padding-left: 300px;
+    padding-right: 300px;
+    font-family: Merriweather;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 140%;
+text-align: center;
+  }
+
+  button.tablinks.active{
+    background: none;
+    border: none;
+    padding-left: 300px;
+    padding-right: 300px;
+    font-family: Merriweather;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 140%;
+text-align: center;
+text-decoration: underline;
+  }
+  
+
 /* Input
    ==============================================================================*/
 .input {
   height: 50px;
-  width: 400px;
+  width: 50%;
   font-size: 25px;
-  margin: 10px;
-  border-color: BLACK;
-  alignment: center;
+  border-color: black;
+  float:left;
+  border-radius: 8px;
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
 }
 
-  
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 12px;
+  border-top: none;
+  align-content: center;
+  text-align: center;
+}
+
+div.imagetabtext{
+  width: 80%;
+  text-align: center;
+  align-content: center;
+  margin:auto;
+}
+
+div.videotabtext{
+  margin:auto;
+  width: 80%;
+  text-align: center;
+  align-content: center;
+  background: #E5E5E5;
+  border-radius: 16px;
+}
+
+div.sectiontext{
+  width: 31.333333333%;
+  float: left;
+  background: #C4C4C4;
+  border-radius: 16px;
+  margin:1%;
+  padding: 1%;
+  height: 30%;
+}
+
+
+p.title{
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: bold;
+font-size: 28px;
+line-height: 140%;
+padding: 1%;
+}
+
+p.description{
+  font-family: 'Merriweather';
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 140%;
+}
+
+p2.descriptionlist{
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 140%;
+text-align: left;
+}
