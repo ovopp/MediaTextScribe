@@ -35,9 +35,13 @@ app.get('/video', (req, res) => {
     });
   });
 
+app.get('/totext', (req, res) =>{
+  res.render('text', {
+    title: 'text',
+    words: 'Hello World'
+  });
+});
 
-
-const url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States';
 
 app.post('/totext', (req, res) => {
     var form_data = req.body.address;
