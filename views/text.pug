@@ -12,6 +12,7 @@ block content
         button(type='button' class='button' onclick="readOutLoud()") Read-Aloud
         script
             include ../routes/index.js
-        div.results
-            h1 Image to text <br> <br>
-            p(id="result") #{words}
+        div.result(id="result")        
+            each text in textForDisplay
+                p #{textForDisplay}
+
