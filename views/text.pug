@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    div.help_text2 Optimize another website URL
+    div.form
+        form(action=`/totext` method='POST' )
+            p type your url here
+                input(type='text' name='address' placeholder='http://example.com' value='').input
+                input(type='submit', value='TextScribe').button
+    div.result
+        h1 Image to text
+        p #{words}

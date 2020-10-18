@@ -1,6 +1,7 @@
 
 extends layout
 block content
+<<<<<<< HEAD
   div.globalcontainer
     div.help_text Insert any URL and get a page reoptimized with image descriptions
     div.form
@@ -9,6 +10,14 @@ block content
         p
           input(type='text' name='address' placeholder='http://example.com' value='').input
         input(style="float: right", type='submit', value='TextScribe').button
+=======
+  div.help_text Insert any URL and get a page reoptimized with image descriptions
+  div.form
+    form(action=`/totext` method='POST' )
+      p type your url here
+        input(type='text' name='address' placeholder='http://example.com' value='').input
+      input(type='submit', value='TextScribe').button
+>>>>>>> fda583b228f6a95690c3a6dd694d5b4a38883236
 
     div.belief
       p.belief We believe alt-text is a web essential, not luxury
