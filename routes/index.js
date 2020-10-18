@@ -21,4 +21,19 @@ function openTab(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
+function translateText(){
+  document.getElementById("result").innerHTML = "Translated";
+}
+
+function readOutLoud(){
+  if ('speechSynthesis' in window) {
+    // Speech Synthesis supported 🎉
+   }else{
+     // Speech Synthesis Not Supported 😣
+     alert("Sorry, your browser doesn't support text to speech!");
+   }
+   var msg = new SpeechSynthesisUtterance();
+  msg.text = document.getElementById("result").innerHTML;
+  window.speechSynthesis.speak(msg);
+}
 module.exports = router;
