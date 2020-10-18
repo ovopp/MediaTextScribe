@@ -114,6 +114,11 @@
     padding-bottom: 25px;
   }
 
+  div.videolayout{
+    display: flex;
+    justify-content: center;
+  }
+
   div.anotherwebtext{
     padding-top: 25px;
     padding-left: 20%;
@@ -138,8 +143,6 @@ line-height: 25px;
     text-align: center;
     color: #262626;
     padding-top: 25px;
-    padding-left: 190 px;
-    padding-right: 190 px;
   }
 
   div.help_text2{
@@ -184,6 +187,24 @@ line-height: 25px;
     color: #262626;
   }
 
+  div.demo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Merriweather';
+    font-stretch: normal;
+    font-style: normal;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 300px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    color: #262626;
+  }
+
   p.belief{
     font-size: 42px;
     line-height: 53px;
@@ -225,7 +246,7 @@ text-align: center;
     width: 210px;
     height: 65px;
     left: 955px;
-    top: 413 px;
+    top: 200px;
     background: #BCBCBC;
     border-radius: 8px;
     border: 0px;
@@ -267,6 +288,28 @@ font-size: 22px;
 line-height: 140%;
 text-align: center;
 text-decoration: underline;
+  }
+
+  .button.demobutton{
+    display: flex;
+    justify-content: center;
+    background: #BCBCBC;
+    border: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 25px;
+    float:left;
+    width: 200px;
+    height: 65px;
+    left: 955px;
+    margin-right: 20px;
+    margin-left: 20px;
   }
   
 

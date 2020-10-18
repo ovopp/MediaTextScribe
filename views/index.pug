@@ -10,8 +10,13 @@ block content
           input(type='text' name='address' placeholder='http://example.com' value='').input
         input(style="float: right", type='submit', value='TextScribe').button
 
+    div.demo
+      p
+        button.button.demobutton(type='button' class='button' onclick="document.location = '/video'") Demo 1
+        button.button.demobutton(type='button' class='button' onclick="document.location = '/video2'") Demo 2
+
     div.belief
-      p.belief We believe alt-text is a web essential, not luxury
+      p.belief We believe alt-text is a web essential, not a luxury
         p.bullet • Globally, at least 1 billion people have a near or distance vision impairment
         p.bullet • Only 1% of the world’s top million web pages meet the most widely used accessibility
         p.bullet • People who use screen readers are regularly confronted with readouts like “unlabeled button” or “image1.jpg” in place of the descriptive information they need to navigate.
