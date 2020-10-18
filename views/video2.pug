@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    div.globalcontainer
+        div.anotherwebtext Optimize another website URL
+        div.form
+            form(action=`/totext` method='POST' )
+                p
+                    input(type='text' name='address' placeholder='http://example.com' value='').input
+                    input(type='submit', value='TextScribe').button
+        button(type='button' class='button' onclick="translateText()") Translate
+        button(type='button' class='button' onclick="readOutLoud()") Read-Aloud
+        div.videolayout
+            <iframe width="580" height="780" src="https://www.videoindexer.ai/embed/insights/be897bdc-249c-4a75-b7b4-f30fa6d42de4/3c6111eef0/?&locale=en&location=Trial" frameborder="0" allowfullscreen></iframe>

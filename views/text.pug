@@ -8,8 +8,8 @@ block content
                 p 
                     input(type='text' name='address' placeholder='http://example.com' value='').input
                     input(type='submit', value='TextScribe').button
-        button(type='button' class='button' onclick="translateText()") Translate
-        button(type='button' class='button' onclick="readOutLoud()") Read-Aloud
+        button.demobutton(type='button' class='button' onclick="translateText()") Translate
+        button.demobutton(type='button' class='button' onclick="readOutLoud()") Read-Aloud
         script
             include ../routes/index.js
         div.results(id="results")!= words

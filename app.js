@@ -42,6 +42,12 @@ app.get('/totext', (req, res) =>{
   });
 });
 
+app.get('/video2', (req, res) => {
+    res.render('video2', {
+        title: `Video`
+    });
+});
+
 
 app.post('/totext', (req, res) => {
     var form_data = req.body.address;
