@@ -44,45 +44,60 @@ const url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_Stat
 app.post('/totext', (req, res) => {
     var form_data = req.body.address;
     var rp = require('request-promise');
-    const $ = require('cheerio');
-    var images = [];
-    rp(form_data)
-        .then(function(html){
-            //success!
-            var text = "";
-            const imagesLength = $('img', html).length;
-            for (let i = 0; i < imagesLength; i++) {
-                images.push($('img', html)[i].attribs.src);
-            }
-            for(let i=0; i< images.length; i++){
+    const cheerio = require('cheerio');
+    var result_arr = [];
+    rp(form_data, function (error, result, body){
+            const $ = cheerio.load(result.body);
+            $('header').remove();
+            $('footer').remove();
+            for (var i = 0 ; i < $('img').length; i++){
+              var url = $('img')[i].attribs.src;
+              if(url != undefined){
+              if(url[0] !='h'){
+                var http = 'https:'
+                url = http.concat(url);
+              }
               var request = require("request");
-              var options = { method: 'POST',
-                  url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
-                  headers:
-                      {
-                          'cache-control': 'no-cache',
-                          'Content-Type': 'application/json' },
-                  body: { url: images[i]},
-                  json: true };
-              request(options, function (error, response, body) {
-                  if (error) throw new Error(error);
-                  if(response.body != undefined){
-                        var str2 = JSON.stringify(response.body.description);
-                        text = text.concat(str2);
-                  }
-                  console.log(text);
-              });
+                var options = { method: 'POST',
+                    url: 'http://getimagetexts.azurewebsites.net/api/getimagetext',
+                    headers:
+                        {
+                            'cache-control': 'no-cache',
+                            'Content-Type': 'application/json' },
+                    body: {'url': url},
+                    json: true };
+                  request(options, function (error, response) {
+                    if (error) throw new Error(error);
+                    if(response.body != undefined){
+                      console.log(response.body);
+                      var r = JSON.stringify(response.body['description']);
+                      if(r!=""){
+                        var p = $('<p> Picture to Text: ' + r + '</p>');
+                      }
+                      else{
+                        var p = $('<p></p>');
+                      }
+                      $('img').first().replaceWith(p);
+                    }
+                });
             }
+          }
+
+            // setTimeout(function(){
+            //   var j = 0;
+            //   $('img').each(function(){
+            //     $(this).replaceWith(result_arr[j]);
+            //     j++;
+            //   });
+            // },15000);
             setTimeout(function(){
               res.render('text', {
                 title: 'Media TextScribe',
-                words: text
+                words: $.html()
               })
-            },5000);
-  });
+            },15000);
+          });
 });
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

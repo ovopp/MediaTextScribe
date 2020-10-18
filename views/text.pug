@@ -12,6 +12,4 @@ block content
         button(type='button' class='button' onclick="readOutLoud()") Read-Aloud
         script
             include ../routes/index.js
-        div.result(id="result")        
-            p #{words}
-
+        div.results(id="results")!= words

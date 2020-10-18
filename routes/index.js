@@ -22,9 +22,8 @@ function openTab(evt, cityName) {
 }
 
 function translateText(){
-  document.getElementById("result").innerHTML = "Translated";
+  document.getElementById("results").innerText = "Translated to Chinese";
 }
-
 function readOutLoud(){
   if ('speechSynthesis' in window) {
     // Speech Synthesis supported 🎉
@@ -33,7 +32,8 @@ function readOutLoud(){
      alert("Sorry, your browser doesn't support text to speech!");
    }
    var msg = new SpeechSynthesisUtterance();
-  msg.text = document.getElementById("result").innerHTML;
+  msg.text = document.getElementById("results").innerText;
   window.speechSynthesis.speak(msg);
 }
+
 module.exports = router;
